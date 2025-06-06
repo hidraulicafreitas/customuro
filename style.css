@@ -135,7 +135,6 @@ button:active {
     color: #1a1a2e;
 }
 
-/* NOVO: Estilo para o contêiner dos 3 totais */
 .total-investido-container {
     background-color: #4a4a6a;
     border-radius: 10px;
@@ -145,20 +144,37 @@ button:active {
 }
 
 .total-line {
-    font-size: 1.2em; /* Tamanho da fonte para cada linha */
+    font-size: 1.2em;
     color: #fff;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 8px; /* Espaçamento entre as linhas */
+    margin-bottom: 8px;
 }
 
 .total-line:last-child {
-    margin-bottom: 0; /* Remove margem do último item */
+    margin-bottom: 0;
 }
 
 .total-line span {
-    color: #9aff9a; /* Cor para os valores */
+    color: #9aff9a;
     margin-left: 5px;
+}
+
+/* NOVO: Estilo para o divisor entre os totais gerais e individuais */
+.total-investido-container hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 15px 0;
+}
+
+/* NOVO: Estilo para os totais de responsabilidade individual */
+.participant-total {
+    font-size: 1.1em; /* Um pouco menor para diferenciar */
+    color: #b0b0b0; /* Cor um pouco mais suave */
+}
+
+.participant-total span {
+    color: #a0c4ff; /* Um azul para os valores individuais */
 }
 
 
@@ -200,7 +216,7 @@ button:active {
 }
 
 #listaCustos li .delete-btn, #listaAVencer li .delete-btn {
-    background-color: #ff6b6b; /* Vermelho para o botão de exclusão */
+    background-color: #ff6b6b;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -215,7 +231,7 @@ button:active {
 }
 
 #listaAVencer li .mark-paid-btn {
-    background-color: #28a745; /* Verde para o botão "Pago!" */
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -284,7 +300,7 @@ button:active {
     }
 
     #listaCustos li .item-actions, #listaAVencer li .item-actions {
-        flex-direction: column; /* Empilha os botões em telas pequenas */
+        flex-direction: column;
         gap: 5px;
     }
 }
