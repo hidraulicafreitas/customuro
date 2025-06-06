@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalGeralCustoSpan = document.getElementById('totalGeralCusto');
     const totalAteMomentoCustoSpan = document.getElementById('totalAteMomentoCusto');
     const totalAVencerCustoSpan = document.getElementById('totalAVencerCusto');
+    // NOVOS ELEMENTOS PARA RESPONSABILIDADE INDIVIDUAL
+    const totalJossiasSpan = document.getElementById('totalJossias');
+    const totalSilvanaSpan = document.getElementById('totalSilvana');
+
 
     const gerarPdfBtn = document.getElementById('gerarPdf');
     const graficoCustosCanvas = document.getElementById('graficoCustos');
@@ -101,6 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
         totalGeralCustoSpan.textContent = formatCurrency(totalGeral);
         totalAteMomentoCustoSpan.textContent = formatCurrency(totalAteMomento);
         totalAVencerCustoSpan.textContent = formatCurrency(totalAVencer);
+
+        // CÁLCULO E ATUALIZAÇÃO DOS TOTAIS POR PESSOA
+        const totalPorPessoa = totalGeral / 2;
+        totalJossiasSpan.textContent = formatCurrency(totalPorPessoa);
+        totalSilvanaSpan.textContent = formatCurrency(totalPorPessoa);
+
 
         updateChart();
         localStorage.setItem('custosMuro', JSON.stringify(custos));
@@ -334,9 +344,10 @@ document.addEventListener('DOMContentLoaded', () => {
             yPos += 10;
         }
 
+        // TOTAIS NO PDF
         doc.setFontSize(14);
         doc.setTextColor(0, 128, 0);
-        doc.text(`Total Geral Investido: ${formatCurrency(totalPdf)}`, 14, yPos); // Agora este é o total geral
+        doc.text(`Total Geral Investido: ${formatCurrency(totalPdf)}`, 14, yPos);
         yPos += 8;
 
         const totalHist = custosHistorico.reduce((sum, item) => sum + item.valor, 0);
@@ -345,6 +356,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const totalFut = pagamentosAVencer.reduce((sum, item) => sum + item.valor, 0);
         doc.text(`Total a Vencer: ${formatCurrency(totalFut)}`, 14, yPos);
+        yPos += 8;
+
+        // Responsabilidade individual no PDF
+        const totalGeralParaDivisao = custos.reduce((sum, item) => sum + item.valor, 0);
+        const totalPorPessoaPdf = totalGeralParaDivisao / 2;
+        doc.text(`Jossias (50%): ${formatCurrency(totalPorPessoaPdf)}`, 14, yPos);
+        yPos += 8;
+        doc.text(`Silvana (50%): ${formatCurrency(totalPorPessoaPdf)}`, 14, yPos);
 
 
         doc.save('relatorio_custos_muro.pdf');
