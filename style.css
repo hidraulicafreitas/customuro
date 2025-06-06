@@ -1,0 +1,290 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e; /* Fundo escuro moderno */
+    color: #e0e0e0; /* Cor do texto claro */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #2a2a4a; /* Fundo do container um pouco mais claro que o body */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #9aff9a; /* Um verde chamativo para o título */
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(154, 255, 154, 0.5);
+}
+
+header p {
+    font-size: 1.1em;
+    color: #b0b0b0;
+}
+
+section {
+    background-color: #3a3a5a; /* Fundo das seções */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: #a0c4ff; /* Azul claro para os subtítulos */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid rgba(160, 196, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a4a6a;
+    color: #e0e0e0;
+    font-size: 1em;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    background-color: #5a5a7a;
+    box-shadow: 0 0 0 3px #a0c4ff;
+}
+
+button {
+    background-color: #9aff9a; /* Verde chamativo para botões */
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #7cdc7c;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.view-toggle button {
+    background-color: #5a5a7a;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.view-toggle button.active {
+    background-color: #9aff9a;
+    color: #1a1a2e;
+}
+
+/* NOVO: Estilo para o contêiner dos 3 totais */
+.total-investido-container {
+    background-color: #4a4a6a;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.total-line {
+    font-size: 1.2em; /* Tamanho da fonte para cada linha */
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px; /* Espaçamento entre as linhas */
+}
+
+.total-line:last-child {
+    margin-bottom: 0; /* Remove margem do último item */
+}
+
+.total-line span {
+    color: #9aff9a; /* Cor para os valores */
+    margin-left: 5px;
+}
+
+
+#listaCustos, #listaAVencer {
+    list-style: none;
+    padding: 0;
+}
+
+#listaCustos li, #listaAVencer li {
+    background-color: #4a4a6a;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#listaCustos li:hover, #listaAVencer li:hover {
+    transform: translateX(5px);
+}
+
+#listaCustos li .item-info, #listaAVencer li .item-info {
+    flex-grow: 1;
+}
+
+#listaCustos li .item-value, #listaAVencer li .item-value {
+    font-weight: bold;
+    color: #9aff9a;
+    margin-left: 20px;
+}
+
+#listaCustos li .item-actions, #listaAVencer li .item-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+#listaCustos li .delete-btn, #listaAVencer li .delete-btn {
+    background-color: #ff6b6b; /* Vermelho para o botão de exclusão */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#listaCustos li .delete-btn:hover, #listaAVencer li .delete-btn:hover {
+    background-color: #e04c4c;
+}
+
+#listaAVencer li .mark-paid-btn {
+    background-color: #28a745; /* Verde para o botão "Pago!" */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#listaAVencer li .mark-paid-btn:hover {
+    background-color: #218838;
+}
+
+
+.chart-section {
+    position: relative;
+    height: 380px;
+    margin-bottom: 30px;
+}
+
+.chart-section canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.pdf-section {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .view-toggle {
+        flex-direction: column;
+    }
+
+    .chart-section {
+        height: 250px;
+    }
+
+    #listaCustos li .item-actions, #listaAVencer li .item-actions {
+        flex-direction: column; /* Empilha os botões em telas pequenas */
+        gap: 5px;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROLE DE CUSTOS MURO 🧱💰</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CONTROLE DE CUSTOS MURO 🧱💰</h1>
+            <p>Gerencie seus investimentos no muro de forma fácil e transparente! ✨</p>
+        </header>
+
+        <section class="input-section">
+            <h2>Novo Lançamento 🚀</h2>
+            <div class="form-group">
+                <label for="descricao">Descrição: </label>
+                <input type="text" id="descricao" placeholder="Ex: Cimento, Areia, Mão de Obra..." required>
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor (R$): </label>
+                <input type="number" id="valor" placeholder="Ex: 150.00" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="dataVencimento">Data de Vencimento: </label>
+                <input type="date" id="dataVencimento" required>
+            </div>
+            <button id="adicionarCusto">Adicionar Custo 🎉</button>
+        </section>
+
+        <section class="view-toggle">
+            <button id="showHistoricoBtn" class="active">Histórico 📜</button>
+            <button id="showAVencerBtn">A Vencer 🗓️</button>
+        </section>
+
+        <section class="history-section" id="historicoView">
+            <h2>Visão Geral de Custos 📊</h2>
+            <div class="total-investido-container">
+                <div class="total-line">
+                    Total Geral: <span id="totalGeralCusto">R$ 0.00</span> 💸
+                </div>
+                <div class="total-line">
+                    Total até o Momento: <span id="totalAteMomentoCusto">R$ 0.00</span> ✅
+                </div>
+                <div class="total-line">
+                    Total a Vencer: <span id="totalAVencerCusto">R$ 0.00</span> 🗓️
+                </div>
+            </div>
+            <ul id="listaCustos">
+                </ul>
+        </section>
+
+        <section class="upcoming-section hidden" id="aVencerView">
+            <h2>Pagamentos a Vencer 🗓️</h2>
+            <ul id="listaAVencer">
+                </ul>
+        </section>
+
+        <section class="chart-section">
+            <h2>Gráfico de Investimento 📈</h2>
+            <canvas id="graficoCustos"></canvas>
+        </section>
+
+        <section class="pdf-section">
+            <button id="gerarPdf">Gerar PDF do Relatório 📄</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
